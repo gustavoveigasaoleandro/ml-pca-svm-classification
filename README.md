@@ -1,29 +1,29 @@
 # ml-pca-svm-classification
 
-Projeto de machine learning classico para classificacao de cancer de mama usando reducao de dimensionalidade com PCA e classificador SVM.
+Projeto de machine learning clássico para classificação de câncer de mama usando redução de dimensionalidade com PCA e classificador SVM.
 
 ## Objetivo
 
-O repositorio demonstra um pipeline supervisionado completo:
+O repositório demonstra um pipeline supervisionado completo:
 
 - carregamento de dados via Kaggle Hub;
-- remocao de identificadores;
-- separacao treino/teste estratificada;
-- imputacao de valores ausentes;
-- codificacao de variaveis categoricas quando necessario;
-- padronizacao das features;
-- reducao de dimensionalidade com PCA;
-- busca de hiperparametros de SVM com GridSearchCV;
-- avaliacao com acuracia, matriz de confusao e relatorio de classificacao;
-- exportacao dos artefatos com `joblib`.
+- remoção de identificadores;
+- separação treino/teste estratificada;
+- imputação de valores ausentes;
+- codificação de variáveis categóricas quando necessário;
+- padronização das features;
+- redução de dimensionalidade com PCA;
+- busca de hiperparâmetros de SVM com GridSearchCV;
+- avaliação com acurácia, matriz de confusão e relatório de classificação;
+- exportação dos artefatos com `joblib`.
 
-## Conteudo
+## Conteúdo
 
-- `training.ipynb`: notebook principal de treinamento e avaliacao.
+- `training.ipynb`: notebook principal de treinamento e avaliação.
 - `artifacts/pca_svm_pipeline.joblib`: pipeline completo treinado.
-- `artifacts/pca.joblib`: etapa de PCA extraida do pipeline.
-- `artifacts/svm.joblib`: classificador SVM extraido do pipeline.
-- `requirements.txt`: dependencias.
+- `artifacts/pca.joblib`: etapa de PCA extraída do pipeline.
+- `artifacts/svm.joblib`: classificador SVM extraído do pipeline.
+- `requirements.txt`: dependências.
 
 ## Base de Dados
 
@@ -33,13 +33,13 @@ O notebook baixa a base `neurocipher/breast-cancer-dataset` via Kaggle Hub:
 kagglehub.dataset_download("neurocipher/breast-cancer-dataset")
 ```
 
-A coluna alvo esperada e `diagnosis`. A coluna `id`, quando presente, e removida antes do treinamento para evitar que identificadores entrem como feature.
+A coluna alvo esperada é `diagnosis`. A coluna `id`, quando presente, é removida antes do treinamento para evitar que identificadores entrem como feature.
 
-O arquivo `data.csv` local nao foi publicado porque contem dados de contexto medico e identificadores numericos. A reproducao deve usar o download direto da fonte indicada no notebook.
+O arquivo `data.csv` local não foi publicado porque contém dados de contexto médico e identificadores numéricos. A reprodução deve usar o download direto da fonte indicada no notebook.
 
 ## Como Executar
 
-Instale as dependencias:
+Instale as dependências:
 
 ```bash
 pip install -r requirements.txt
@@ -53,7 +53,7 @@ jupyter notebook training.ipynb
 
 ## Uso dos Artefatos
 
-O arquivo mais importante para reutilizacao e `artifacts/pca_svm_pipeline.joblib`, pois contem pre-processamento, PCA e SVM no mesmo pipeline.
+O arquivo mais importante para reutilização é `artifacts/pca_svm_pipeline.joblib`, pois contém pré-processamento, PCA e SVM no mesmo pipeline.
 
 Exemplo conceitual:
 
@@ -64,6 +64,6 @@ model = joblib.load("artifacts/pca_svm_pipeline.joblib")
 predictions = model.predict(X)
 ```
 
-## Limitacoes
+## Limitações
 
-Este repositorio esta completo como estudo de treinamento, mas nao inclui API, dashboard ou script de inferencia dedicado. Para portifolio/producao, os proximos passos seriam adicionar `predict.py`, exemplos de entrada e testes de carregamento do artefato.
+Este repositório está completo como estudo de treinamento, mas não inclui API, dashboard ou script de inferência dedicado. Para portfólio/produção, os próximos passos seriam adicionar `predict.py`, exemplos de entrada e testes de carregamento do artefato.
